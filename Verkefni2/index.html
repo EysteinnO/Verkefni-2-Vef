@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Verkefni2</title>
+</head>
+<body>
+
+<h3>
+    1. Hvað er ECMAScript?
+    ECMAScript er staðlað forritunartungumál byggt á Javascript og hagar sér eins í öllum viðmótum sem styðja tungumálið.
+
+    2. Hvað þýðir að JavasScript sé loosly typed tungumál?
+    Það þýðir að Javascript er ekki strangt, þeas það leyfir manni að komast upp með ýmislegt sem mörg önnur tungumál gera alls ekki.
+    Sem dæmi þá kemst maður upp með að skilgreina ekki data types af variables. Oft giskar Javascript bara á hvað þú vilt gera þegar maður skilgreinir ekki.
+
+    3. Er einhver munur á einföldum og tvöföldum gæsalöppum í JavaScript?
+
+    4. Hvað er null og undefined?
+    Undefined er þegar breyta hefur verið skilgreind en hefur ekki verið úthlutað gildi.
+    Null er gildi sem hægt er að úthluta á breytu en er þá ekkert.
+    Undefined er þá type sem hefur gildið Undefined og skilar því þegar villumeldingin kemur.
+    Null hins vegar er object.
+
+    5. Hver er munurinn á == og === í JavaScript?
+    Ef notað er == í Javascript þá reynir að gera öll möguleg type conversions, en hins vegar ef notað er === þá er það EKKI gert, svo ef tvö gildi eru ekki
+    af sömu týpu, þá mun === skila false. Bæði eru jafn hröð.
+
+    6. Hver er munurinn á let og var? komdu með kóðadæmi sem sýnir muninn.
+    Munurinn er sá að let gerir breytuna alltaf local, en var gerir það ekki.
+
+    //Global
+    if(true) {
+        var x = 5;
+    }
+    console.log(x); // Hér sést breytan og þar af mun console.log skila gildinu 5.
+
+    //Local
+    if(true) {
+        let y = 5;
+    }
+    console.log(y); // Hér sést breytan ekki og þar af skilar Javascript villunni "Y is not defined".
+
+
+    7. Skilgreindu fall á þrjá mismunandi vegu með kóðadæmi; function declarations, function
+    expressions og arrow functions.
+
+    //Function Declaration
+    function area(width, height) {
+        return width * height;
+    }
+
+    var size = area(3,4);
+
+    //Function Expression
+    var area = function(width, height) {
+        return width * height;
+    };
+
+    var size = area(3,4);
+
+    //Arrow Functions
+    var multiply = (x, y) => { return x * y };
+
+
+
+    8. Hvað gerir 'use strict'; í EcmaScript? (þarf að googla svar)
+    Stillir ECMAScriptið til þess að vera mun strangara á villumeldingar.
+
+    9. Hér er dæmi um “function declaration” og kall á fallið. Afhverju virkar eftirfarandi kóði í
+    JavaScript, útskýrðu?
+    x();
+    function x() {
+    console.log('x');
+    }
+    Því þýðandinn tekur öll function declarations og skilgreinir þau fyrst, svo er restin gerð hvað sem það er. Og í þessu tilfelli er kallað á fallið x, og fallið er til.
+
+
+    10. Í hvaða röð er kóðinn keyrður í raun eftir að þýðandinn (e. interpreter) er búinn að fá hann til
+    sín? Hvað birtir alert(), afhverju?
+    function foo(){
+    function bar() {
+    return 3;
+    }
+    return bar();
+    function bar() {
+    return 8;
+    }
+    }
+    alert(foo());
+
+    Föllin eru skilgreind í þeirri röð sem þau eru. Fallið foo er utan um tvö föll sem heita bar. Kallað er á fallið foo og hann yfirskrifar fyrra fallið og skilar 8 en ekki 3.
+
+    11. Hvað gerist þegar ég gleymi að skilgreina breytu með var eða let? Útskýrðu hvað gerist
+        age = '30';
+        console.log(age);
+    Þýðandinn byrjar á því að gera það global variable, og ef maður ætlar t.d. að nota það inn í function þá sést það allstaðar, en ef það væri skilgreint ínn í function þá væri það local.
+
+    // These are both globals
+    var foo = 1;
+    bar = 2;
+
+    function()
+    {
+        var foo = 1; // Local
+        bar = 2;     // Global
+    }
+
+    Grunnatriði og Málskipan
+    12. Útskýrðu hvað eftirfarandi kóði gerir, hvað gera svigarnir?
+    (function() {
+    alert('Hello World');
+    })();
+
+    Fallið keyrir strax um leið og það sést, og flookast undir IIFE eða Immediately Invoked Function Expression. Sviginn fyrir framan lætur þýðandann höndla þetta sem expression. Seinustu svigarnir kalla strax á fallið um leið og þyðandinn kemur að því.    13. Útskýrðu variable scope.
+    14. Hvað er call stack?
+    Gagna strúktúr sem geymir köll á föll. Ef maður kallar á eitthvað fall í forritinu þá hendir maður eitthverju ofan á stackinn, og þegar við skilum frá falli þá tökum við úr stackinum.
+</h3>
+
+</body>
+</html>
